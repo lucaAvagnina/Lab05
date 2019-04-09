@@ -62,6 +62,7 @@ public class AnagrammiController {
     	txtParola.clear();
     	txtCorretto.clear();
     	txtErrato.clear();
+    	model.pulisci();
     }
 
     @FXML

@@ -1,14 +1,16 @@
 package it.polito.tdp.anagrammi.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import it.polito.tdp.anagrammi.DAO.AnagrammaDAO;
 
 public class Model {
 	
-	private List<String> anagrammiGiusti;
-	private List<String> anagrammiErrati;
+	private Set<String> anagrammiGiusti;
+	private Set<String> anagrammiErrati;
 	
 	private List<String> anagrammi;
 	
@@ -17,13 +19,13 @@ public class Model {
 	private AnagrammaDAO anagrammaDAO = new AnagrammaDAO();
 	
 	public Model() {
-		anagrammiGiusti = new ArrayList<String>();
-		anagrammiErrati = new ArrayList<String>();
+		anagrammiGiusti = new HashSet<String>();
+		anagrammiErrati = new HashSet<String>();
 		anagrammi = new ArrayList<String>();
 		parziale = "";
 	}
 	
-	public List<String> getAnagrammiGiusti(String parola) {
+	public Set<String> getAnagrammiGiusti(String parola) {
 
 		this.recursive(parola, parziale, 0);
 		
@@ -39,7 +41,7 @@ public class Model {
 		return anagrammiGiusti;
 	}
 	
-	public List<String> getAnagrammiErrati() {
+	public Set<String> getAnagrammiErrati() {
 		
 		return anagrammiErrati;
 	}
@@ -81,9 +83,9 @@ public class Model {
 	}
 
 
-	public String stampa(List<String> anagrammi) {
+	public String stampa(Set<String> set) {
 		String result = "";
-		for(String s : anagrammi) {
+		for(String s : set) {
 			result += s+"\n";
 		}
 		return result;
