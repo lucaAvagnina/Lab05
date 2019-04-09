@@ -69,7 +69,7 @@ public class Model {
 	}
 	
 
-	public int conta(Character prova, String parola) {
+	public static int conta(Character prova, String parola) {
 		
 		int contatore = 0; 
 		
